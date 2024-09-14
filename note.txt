@@ -1,0 +1,4 @@
+Controller: Endpoints management.
+Service: Logical management.
+Repository: DBMS management.
+Request: Class hold the request detail.

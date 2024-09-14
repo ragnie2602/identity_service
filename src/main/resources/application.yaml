@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity # Specialize the path before endpoints.
+
+spring:
+  application:
+    name: identity_service
+  
+  # Link to the database
+  datasource:
+    url: "jdbc:mysql://localhost:3306/identity_service"
+    username: root
+    password: root
+  
+  # Allow JPA auto create the table in case it hasn't existed yet.
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
