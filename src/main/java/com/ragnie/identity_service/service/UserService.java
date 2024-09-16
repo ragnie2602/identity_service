@@ -47,10 +47,14 @@ public class UserService {
     public User updateUser(String userId, UserUpdateRequest request) {
         User user = getUser(userId);
 
-        user.setPassword(request.getPassword());
-        user.setLastName(request.getLastName());
-        user.setFirstName(request.getFirstName());
-        user.setDob(request.getDob());
+        if (request.getPassword() != null)
+            user.setPassword(request.getPassword());
+        if (request.getFirstName() != null)
+            user.setFirstName(request.getFirstName());
+        if (request.getLastName() != null)
+            user.setLastName(request.getLastName());
+        if (request.getDob() != null)
+            user.setDob(request.getDob());
 
         return userRepository.save(user);
     }
