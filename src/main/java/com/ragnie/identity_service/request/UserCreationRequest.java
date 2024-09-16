@@ -2,12 +2,14 @@ package com.ragnie.identity_service.request;
 
 import java.time.LocalDate;
 
+import com.ragnie.identity_service.exception.ErrorCode;
+
 import jakarta.validation.constraints.Size;
 
 public class UserCreationRequest {
-    @Size(min = 4, message = "Username must be at least 4 characters!")
+    @Size(min = 4, message = "INVALID_USERNAME") // Cannot use ErrorCode.INVALID_USERNAME.getMessage()
     private String username;
-    @Size(min = 8, message = "Password must be at least 8 characters!")
+    @Size(min = 8, message = "INVALID_PASSWORD")
     private String password;
     private String firstName;
     private String lastName;

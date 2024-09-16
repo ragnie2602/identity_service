@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ragnie.identity_service.entity.User;
+import com.ragnie.identity_service.exception.AppException;
+import com.ragnie.identity_service.exception.ErrorCode;
 import com.ragnie.identity_service.repository.UserRepository;
 import com.ragnie.identity_service.request.UserCreationRequest;
 import com.ragnie.identity_service.request.UserUpdateRequest;
@@ -18,9 +20,8 @@ public class UserService {
     public User createUser(UserCreationRequest request) {
         User user = new User();
 
-        if (userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("User existed");
-        }
+        if (userRepository.existsByUsername(request.getUsername()))
+            throw new AppException(ErrorCode.USER_EXITED);
 
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());

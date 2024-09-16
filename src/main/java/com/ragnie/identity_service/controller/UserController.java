@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ragnie.identity_service.entity.User;
 import com.ragnie.identity_service.request.UserCreationRequest;
 import com.ragnie.identity_service.request.UserUpdateRequest;
+import com.ragnie.identity_service.response.ApiResponse;
 import com.ragnie.identity_service.service.UserService;
 
 import jakarta.validation.Valid;
@@ -26,9 +27,10 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody @Valid UserCreationRequest request) {
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request) {
         // Valid annotation requires app validate obey the rule you defined in request
-        return userService.createUser(request);
+
+        return new ApiResponse<User>(200, userService.createUser(request));
     }
 
     @DeleteMapping("/{userId}")
