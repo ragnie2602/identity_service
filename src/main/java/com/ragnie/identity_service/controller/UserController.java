@@ -15,6 +15,8 @@ import com.ragnie.identity_service.request.UserCreationRequest;
 import com.ragnie.identity_service.request.UserUpdateRequest;
 import com.ragnie.identity_service.service.UserService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -24,7 +26,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody UserCreationRequest request) {
+    User createUser(@RequestBody @Valid UserCreationRequest request) {
+        // Valid annotation requires app validate obey the rule you defined in request
         return userService.createUser(request);
     }
 

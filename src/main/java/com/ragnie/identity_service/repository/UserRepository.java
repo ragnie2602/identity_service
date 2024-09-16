@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.ragnie.identity_service.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {}
+public interface UserRepository extends JpaRepository<User, String> {
+    boolean existsByUsername(String username);
+}

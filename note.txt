@@ -1,4 +1,7 @@
 Controller: Endpoints management.
 Service: Logical management.
 Repository: DBMS management.
-Request: Class hold the request detail.
+-----------
+Exception: Handle exception
+Request: Classes hold the request detail.
+Response: Classes define the nomarlized response.
