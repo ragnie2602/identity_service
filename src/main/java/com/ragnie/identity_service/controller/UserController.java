@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ragnie.identity_service.dto.request.UserCreationRequest;
+import com.ragnie.identity_service.dto.request.UserUpdateRequest;
+import com.ragnie.identity_service.dto.response.ApiResponse;
 import com.ragnie.identity_service.entity.User;
-import com.ragnie.identity_service.request.UserCreationRequest;
-import com.ragnie.identity_service.request.UserUpdateRequest;
-import com.ragnie.identity_service.response.ApiResponse;
 import com.ragnie.identity_service.service.UserService;
 
 import jakarta.validation.Valid;

@@ -5,7 +5,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.ragnie.identity_service.response.ApiResponse;
+import com.ragnie.identity_service.dto.response.ApiResponse;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

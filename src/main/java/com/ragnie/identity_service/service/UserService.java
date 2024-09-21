@@ -3,12 +3,13 @@ package com.ragnie.identity_service.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ragnie.identity_service.dto.request.UserCreationRequest;
+import com.ragnie.identity_service.dto.request.UserUpdateRequest;
 import com.ragnie.identity_service.entity.User;
 import com.ragnie.identity_service.exception.AppException;
 import com.ragnie.identity_service.exception.ErrorCode;
+import com.ragnie.identity_service.mapper.UserMapper;
 import com.ragnie.identity_service.repository.UserRepository;
-import com.ragnie.identity_service.request.UserCreationRequest;
-import com.ragnie.identity_service.request.UserUpdateRequest;
 
 import java.util.List;
 
@@ -17,19 +18,21 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser(UserCreationRequest request) {
-        User user = new User();
+    @Autowired
+    private UserMapper userMapper;
 
+    public User createUser(UserCreationRequest request) {
         if (userRepository.existsByUsername(request.getUsername()))
             throw new AppException(ErrorCode.USER_EXITED);
 
-        user.setUsername(request.getUsername());
-        user.setPassword(request.getPassword());
-        user.setFirstName(request.getFirstName());
-        user.setLastName(request.getLastName());
-        user.setDob(request.getDob());
+        // return userRepository.save(new User(
+        // request.getUsername(),
+        // request.getPassword(),
+        // request.getFirstName(),
+        // request.getLastName(),
+        // request.getDob()));
 
-        return userRepository.save(user);
+        return userRepository.save(userMapper.toUser(request));
     }
 
     public void deleteUser(String userId) {

@@ -1,4 +1,4 @@
-package com.ragnie.identity_service.request;
+package com.ragnie.identity_service.dto.request;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.ragnie.identity_service.response;
+package com.ragnie.identity_service.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

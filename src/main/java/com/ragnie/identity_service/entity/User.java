@@ -18,6 +18,17 @@ public class User {
     private String lastName;
     private LocalDate dob;
 
+    public User() {
+    }
+
+    public User(String username, String password, String firstName, String lastName, LocalDate dob) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+    }
+
     public String getId() {
         return id;
     }
